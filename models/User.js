@@ -1,10 +1,15 @@
-const { Schema, model, Types} = require('mongoose')
+import mongoose from 'mongoose'
+import { deflate } from 'zlib'
 
-const schema= new Schema({
+const UserSchema = new mongoose.Schema({
+    fullName:{type:String, require:true,},
     email: {type:String, require:true, unique:true},
-    password:{type:String, require:true},
-    todos:[{type:Types.ObjectId, ref:'Todo'}]
+    passwordHash:{type:String, require:true},
+    avatarUrl:String,
+},{
+    timestamps: true,
 
 })
 
-module.exports = model('User', schema)
+
+export default mongoose.model('User',UserSchema)
