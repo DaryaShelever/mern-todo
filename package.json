@@ -4,6 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "star":"node index.js",
     "start": "nodemon index.js"
   },
   "author": "",
